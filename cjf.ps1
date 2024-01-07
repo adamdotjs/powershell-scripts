@@ -23,7 +23,7 @@ switch($imprintType) {
     2 { New-Item $outputPath -Name "inkjet" -ItemType "directory" | Out-Null }
     3 { New-Item $outputPath -Name "output" -ItemType "directory" | Out-Null }
     4 { break }
-    default { Write-Host "Invalid option."}
+    default { Write-Host "Invalid option."; exit}
 }
 
 Write-Host "You selected $imprintType"
