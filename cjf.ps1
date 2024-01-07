@@ -19,15 +19,14 @@ if (Test-Path $outputPath) {
 Copy-Item -Path $sourceFolder -Destination $outputPath -Recurse -ErrorAction Stop
 
 switch($imprintType) {
-    1 { New-Item $outputPath -Name "vdp" -ItemType "directory" | Out-Null }
-    2 { New-Item $outputPath -Name "inkjet" -ItemType "directory" | Out-Null }
-    3 { New-Item $outputPath -Name "output" -ItemType "directory" | Out-Null }
+    1 { New-Item $outputPath -Name "output" -ItemType "directory" | Out-Null; break }
+    2 { New-Item $outputPath -Name "vdp" -ItemType "directory" | Out-Null; break }
+    3 { New-Item $outputPath -Name "inkjet" -ItemType "directory" | Out-Null; break }
     4 { break }
-    default { Write-Host "Invalid option."; exit}
+    default { Write-Host "Invalid option. Please try again."; exit}
 }
 
 Write-Host "You selected $imprintType"
-
 Write-Host "Folder for job '$jobNumber' created successfully." -ForegroundColor white -BackgroundColor blue
 
 $viewInExplorer = Read-Host -Prompt "View folder in Explorer? (Y/N)"
